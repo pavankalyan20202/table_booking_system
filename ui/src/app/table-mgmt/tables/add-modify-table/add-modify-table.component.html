@@ -1,0 +1,34 @@
+<form [formGroup]="tableForm" (ngSubmit)="saveOrUpdate()">
+    <div class="modal-header">
+        <h4 class="modal-title">Create Reservation</h4>
+        <button type="button" class="btn-close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <div class="mb-3">
+            <label for="tableNum" class="form-label">Table Name</label>
+            <input type="text" class="form-control" id="tableNum" formControlName="tableName"
+                placeholder="Table Name">
+        </div>
+        <div class="mb-3">
+            <label for="capacity" class="form-label">Table Capacity</label>
+            <input type="number" class="form-control" id="capacity" formControlName="capacity"
+                placeholder="Table Capacity">
+        </div>
+
+        <div class="mb-3">
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Availability</label>
+                <input class="form-check-input ml-5" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="availability">
+                
+              </div>
+              
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+</form>

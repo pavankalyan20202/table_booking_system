@@ -1,0 +1,33 @@
+<form [formGroup]="reserveForm" (ngSubmit)="saveOrUpdate()">
+    <div class="modal-header">
+        <h4 class="modal-title">Create Reservation</h4>
+        <button type="button" class="btn-close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+        <div class="mb-3">
+            <label for="customerName" class="form-label">Customer Name</label>
+            <input type="text" class="form-control" id="customerName" formControlName="customerName"
+                placeholder="Customer Name">
+        </div>
+        <div class="mb-3">
+            <label for="reservationDate" class="form-label">Reservation Date</label>
+            <input type="date" class="form-control" id="reservationDate" formControlName="reservationDate"
+                placeholder="Reservation Date">
+        </div>
+
+        <div class="mb-3" *ngIf="availableTables.length>0" style="width: 100%;">
+                <p-multiSelect [options]="availableTables" formControlName="tables" optionLabel="tableName"></p-multiSelect>
+          </div>
+
+          <div class="mb-3" *ngIf="availableTables.length == 0">
+            **No tables available for reservation.
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" [disabled]="availableTables.length == 0">Save</button>
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+</form>

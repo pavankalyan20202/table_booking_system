@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="row col-md-8 mt-5">
+      <h1 style="text-align: center;">Welcome to the Table reservation system!</h1>
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mt-5">
+        <li [ngbNavItem]="'reservations'"  (click)="navigate()">
+          <button ngbNavLink>Reservations</button>
+          <ng-template ngbNavContent>
+            <router-outlet></router-outlet>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="'tables'" (click)="navigate()">
+          <button ngbNavLink>Tables</button>
+          <ng-template ngbNavContent>
+            <router-outlet></router-outlet>
+          </ng-template>
+        </li>
+      </ul>
+      
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      
+     
+      
+    </div>
+  </div>
+  
